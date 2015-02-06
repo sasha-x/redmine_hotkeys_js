@@ -4,7 +4,6 @@ module HotkeysPlugin
 	
       def view_layouts_base_html_head(context={})
         <<-TAGS
-          #{stylesheet_link_tag 'customs', :plugin => 'redmine_hotkeys_js'}
           #{javascript_include_tag 'hotkeys', :plugin => 'redmine_hotkeys_js'}
         TAGS
       end
