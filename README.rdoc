@@ -1,3 +1,0 @@
-= redmine_hotkeys_js
-
-Description goes here
