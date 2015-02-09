@@ -1,5 +1,5 @@
 # redmine_hotkeys_js
-== Redmine Hotkeys Plugin ==
+## Redmine Hotkeys Plugin
 
 Add some hotkeys for common actions
 
@@ -19,12 +19,12 @@ Add some hotkeys for common actions
 
 * ...
 
-== Install ==
+## Install 
 
 1.git clone to ./plugins/ folder
 
 2.restart redmine (~ apache)
 
-== Redmine compatibility ==
+## Redmine compatibility
 
 2.6.x and probably other 2.x.x
