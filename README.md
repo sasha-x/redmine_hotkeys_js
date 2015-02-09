@@ -1,18 +1,30 @@
 # redmine_hotkeys_js
-Redmine: some hotkeys for common actions
+== Redmine Hotkeys Plugin ==
 
-ctrl + enter : active form submit
+Add some hotkeys for common actions
 
-ctrl + alt + n : new issue
+* ctrl + enter : active form submit
 
-ctrl + alt + m : new subtask
+* ctrl + alt + n : new issue
 
-ctrl + alt + e : edit issue
+* ctrl + alt + m : new subtask
 
-...
+* ctrl + alt + e : edit issue
 
-Install:
+* ctrl + alt + i: issues list
+
+* ctrl + alt + w: wiki
+
+* ctrl + alt + g: gantt
+
+* ...
+
+== Install ==
 
 1.git clone to ./plugins/ folder
 
 2.restart redmine (~ apache)
+
+== Redmine compatibility ==
+
+2.6.x and probably other 2.x.x
