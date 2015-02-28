@@ -23,8 +23,10 @@ Add some hotkeys for common actions
 
 1.git clone to ./plugins/ folder
 
-2.restart redmine (~ apache)
+2.customize hotkeys in file: redmine_hotkeys_js/assets/javascripts/hotkeys.js, if you want
+
+3.restart redmine (~ apache)
 
 ## Redmine compatibility
 
-2.6.x and probably other 2.x.x
+2.x.x, 3.0.0
