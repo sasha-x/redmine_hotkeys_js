@@ -27,10 +27,15 @@ Add some hotkeys for common actions:
 ### Issue status changes
 
 Based on default status list (script use ids, not names):
+
 New : 1
+
 In Progress : 2 (ctrl + shift + p)
+
 Resolved : 3 (ctrl + shift + r)
+
 Feedback : 4 (ctrl + shift + f)
+
 Closed : 5 (ctrl + shift + c)
 
 Where are some smart actions added for "Resolved" and "Feedback" shortcuts:
