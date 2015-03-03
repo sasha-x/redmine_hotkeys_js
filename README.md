@@ -57,7 +57,14 @@ you may edit vars:
 
 * issueStatusMap
 
-and/or all other code you want :)
+## TODO
+
+* project switching
+* hotkeys customize from "settings" page
+* hotkeys help window
+* hide/show right side page bar
+* keyboard navigation on issues list (yandex mail - like)
+* some ajax functions (?)
 
 ## Install 
 
@@ -70,3 +77,5 @@ and/or all other code you want :)
 ## Redmine compatibility
 
 2.5.x, 2.6.x, 3.0.0
+
+Теsted on default skin. Opera 12.x, FF 35.x
