@@ -50,7 +50,8 @@ you may edit vars:
 * hotkeys help window
 * hide/show right side page bar
 * keyboard navigation on issues list (yandex mail - like)
-* some ajax functions (?)
+* some ajax functions
+* * change issue status/assignee on a fly (?)
 
 ## Install 
 
