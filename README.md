@@ -48,6 +48,8 @@ you may edit vars:
 * project switching
 * hotkeys customize from "settings" page
 * hotkeys help window
+* Edit issue watchers
+* Prev/next issue navigation (?)
 * hide/show right side page bar
 * keyboard navigation on issues list (yandex mail - like)
 * some ajax functions
