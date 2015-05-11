@@ -62,6 +62,11 @@ $(document).ready(function(){
 				case 'g':
 					$("li>a.gantt").hrefRedirect();
 					break;
+				//project switch
+				case 'p':
+					$('.select2-selection').focus();
+					$('select#project_quick_jump_box').select2("open");
+					break;
 				//for new hotkeys
 				default:
 					console.log(e);
@@ -113,7 +118,15 @@ $(document).ready(function(){
 		//e.stopPropagation();
 		
 	});
-
+	
+	//Set .select2() menu to select#project_quick_jump_box for Ctrl+Alt+P program events handle
+	$('select#project_quick_jump_box').select2({
+		escapeMarkup: noFormat,
+		minimumResultsForSearch: Infinity,
+		width: "element"
+	});
+	$('span.select2').width($('span.select2').width()+25);		//width fix
+	
 });
 
 function submitActiveForm()
@@ -130,6 +143,10 @@ function ifKeysPressed(event, keys)
 			return false;
 	}
 	return true;
+}
+
+function noFormat(str){
+	return str;
 }
 
 ;(function($){
