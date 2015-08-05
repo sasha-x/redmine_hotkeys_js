@@ -6,6 +6,15 @@ Add some hotkeys for common actions:
 * ctrl + enter : active form submit
 * project tabs switching
 * issue status changes
+* navigation on issues list (yandex mail - like)
+
+### Navigation on issues list
+
+* "ArrowDown", "ArrowUp" to focus  issue
+* "Space" to select (check/uncheck) it
+* "Enter" to open issue
+
+Make as in mail.yandex.ru. Tested on RM 2.6; FF, Opera, IE8.
 
 ### Project list
 
@@ -53,7 +62,7 @@ you may edit vars:
 * Edit issue watchers
 * Prev/next issue navigation (?)
 * hide/show right side page bar
-* keyboard navigation on issues list (yandex mail - like)
+* context menu keyboard nav (?)
 * some ajax functions
 * * change issue status/assignee on a fly (?)
 
