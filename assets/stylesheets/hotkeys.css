@@ -1,0 +1,5 @@
+tr.issue_focus {
+    outline: 1px solid #5f7499;
+}
+tr.issue_focus td:first-child { border-left: 3px solid #5f7499; }
+tr.issue_focus td:last-child { border-right: 3px solid #5f7499; }

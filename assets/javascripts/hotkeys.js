@@ -145,6 +145,52 @@
                 }
                 
             });
+        },
+        
+        bindIssuesTableKeys()
+        {
+            var issues_table = 'table.list.issues';
+            if ($(issues_table).length) { //issues table exists
+
+                $(document).bind('keydown', function (e) {
+                    var focus_selector = issues_table + ' tbody tr';
+                    var focused_selector = focus_selector + '.issue_focus';
+                    //move issue selector by "ArrowDown" and "ArrowUp"
+                    if ((e.which == 38 || e.which == 40) && !e.ctrlKey && !e.altKey) {
+                        var to_focus;
+                        if ($(focused_selector).length) {
+                            if (e.which == 38) //up
+                                to_focus = $(focused_selector).prev();
+                            else if (e.which == 40) //down
+                                to_focus = $(focused_selector).next();
+
+                            $(focused_selector).removeClass('issue_focus');
+                        } else {
+                            to_focus = $(focus_selector).first();
+                        }
+                        if (to_focus.length) {
+                            to_focus.addClass('issue_focus');
+                            to_focus.find('td.checkbox input')[0].focus();
+                            if (e.shiftKey) {
+                                $(focused_selector).find('td.checkbox input')[0].click();
+                            }
+                            e.preventDefault();
+                        }
+                    }
+                    //perform actions on focused issue
+                    if ($(focused_selector).length) {
+                        if (e.which == 13) { //enter
+                            $(focused_selector + ' td.subject a')[0].click();
+                        }
+                    }
+                });
+
+                /*$(issues_table).bind('contextmenu', function(e){
+                console.log('fire');
+                $('div#context-menu > ul > li > a')[0].focus();
+                });*/
+
+            }
         }
     }
     $(document).ready(function(){
@@ -167,7 +213,7 @@
         
         HK.bindCommonKeys(commonKeys, issueKeys, issueStatusMap);
         HK.setSelect2ProjectJumpBox();
-        
+        HK.bindIssuesTableKeys();
     });
 
 })();
