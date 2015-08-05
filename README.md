@@ -11,7 +11,7 @@ Add some hotkeys for common actions:
 ### Navigation on issues list
 
 * "ArrowDown", "ArrowUp" to focus  issue
-* "Space" to select (check/uncheck) it
+* "Space" (or Shift+Up/Down) to select (check/uncheck) issue
 * "Enter" to open issue
 
 Make as in mail.yandex.ru. Tested on RM 2.6; FF, Opera, IE8.
