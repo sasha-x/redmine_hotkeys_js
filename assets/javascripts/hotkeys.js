@@ -147,14 +147,13 @@
             });
         },
         
-        bindIssuesTableKeys()
+        bindIssuesTableKeys : function ()
         {
             var issues_table = 'table.list.issues';
             if ($(issues_table).length) { //issues table exists
-
-                $(document).bind('keydown', function (e) {
-                    var focus_selector = issues_table + ' tbody tr';
-                    var focused_selector = focus_selector + '.issue_focus';
+                 var focus_selector = issues_table + ' tbody tr';
+                 var focused_selector = focus_selector + '.issue_focus';
+                 var issues_table_navigation = function (e) {
                     //move issue selector by "ArrowDown" and "ArrowUp"
                     if ((e.which == 38 || e.which == 40) && !e.ctrlKey && !e.altKey) {
                         var to_focus;
@@ -174,15 +173,26 @@
                             if (e.shiftKey) {
                                 $(focused_selector).find('td.checkbox input')[0].click();
                             }
-                            e.preventDefault();
                         }
+                        e.preventDefault();
                     }
                     //perform actions on focused issue
                     if ($(focused_selector).length) {
                         if (e.which == 13) { //enter
                             $(focused_selector + ' td.subject a')[0].click();
+                            e.preventDefault();
                         }
                     }
+                };
+
+                $(document).on('keydown', issues_table_navigation);
+                $(document).on('focus', 'form, .select2', function (e) {
+                    $(document).off('keydown', issues_table_navigation);
+                    $(focused_selector).removeClass('issue_focus');
+                });
+
+                $(document).on('focusout', 'form, .select2', function (e) {
+                    $(document).on('keydown', issues_table_navigation);
                 });
 
                 /*$(issues_table).bind('contextmenu', function(e){
