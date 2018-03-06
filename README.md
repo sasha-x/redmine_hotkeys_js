@@ -68,12 +68,21 @@ you may edit vars:
 
 ## Install 
 
+See http://www.redmine.org/projects/redmine/wiki/Plugins
+
 1. git clone to ./plugins/ folder
+ - find redmine installation dir (`find / -name redmine -type d`)
+ - cd to plugins (may be `<installation dir>/apps/redmine/htdocs/plugins/`)
+ - sudo, if need
+ - `git clone https://github.com/sasha-ch/redmine_hotkeys_js.git`
 2. customize hotkeys in file: redmine_hotkeys_js/assets/javascripts/hotkeys.js, if you want
-3. restart redmine (~ apache)
+3. restart redmine or apache. Way depends on your RM installation. May be one of:
+ - `bundle exec rake redmine:plugins:migrate RAILS_ENV=production`
+ - `user@redmine:<htdocs dir># echo 'restart' > tmp/restart.txt` and F5 redmine page
+ - `sudo apache2ctl restart`, `sudo service httpd restart`, `sudo service bitnami restart`
 
 ## Redmine compatibility
 
-2.5.x, 2.6.x, 3.0.0
+2.5, 2.6, 3.0, 3.4
 
-Теsted on default skin. Opera 12.x, FF 35.x
+Теsted on default skin. Opera 12, FF 35-58
