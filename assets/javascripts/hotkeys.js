@@ -40,17 +40,6 @@
     };
 
     var HK = {
-        setSelect2ProjectJumpBox : function ()
-        {
-            //Set .select2() menu to select#project_quick_jump_box for Ctrl+Alt+P program events handle
-            $('select#project_quick_jump_box').select2({
-                escapeMarkup: noFormat,
-                minimumResultsForSearch: Infinity,
-                width: "element"
-            });
-            $('span.select2').width($('span.select2').width()+25);		//width fix
-        },
-    
         bindCommonKeys : function (commonKeys, issueKeys, issueStatusMap)
         {
             $(document).bind('keydown', function(e){
@@ -67,7 +56,7 @@
                     switch(String.fromCharCode(e.which).toLowerCase()){
                         //new issue
                         case 'n':
-                            $("li>a.new-issue:not(.selected)").hrefRedirect();
+                            $("a.new-issue:not(.selected)").hrefRedirect();
                             break;
                         //new subtask
                         case 'm':
@@ -94,8 +83,7 @@
                             break;
                         //project switch
                         case 'p':
-                            $('.select2-selection').focus();
-                            $('select#project_quick_jump_box').select2("open");
+                            $('.drdn-trigger').click();
                             break;
                         //for new hotkeys
                         default:
@@ -153,6 +141,12 @@
             if ($(issues_table).length) { //issues table exists
 
                 $(document).bind('keydown', function (e) {
+                    //where is current focus
+                    var activeElement = document.activeElement;
+                    if(!(activeElement.localName == 'body' || $.contains( $(issues_table).get(0), activeElement ))){
+                        //Focus outside of table. Supress this func
+                        return;
+                    }
                     var focus_selector = issues_table + ' tbody tr';
                     var focused_selector = focus_selector + '.issue_focus';
                     //move issue selector by "ArrowDown" and "ArrowUp"
@@ -212,7 +206,6 @@
             };
         
         HK.bindCommonKeys(commonKeys, issueKeys, issueStatusMap);
-        HK.setSelect2ProjectJumpBox();
         HK.bindIssuesTableKeys();
     });
 
