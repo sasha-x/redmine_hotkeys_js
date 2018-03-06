@@ -1,4 +1,8 @@
 # redmine_hotkeys_js
+
+*UPD* : this version is for RM v. >=3.4.
+Partially incompartible with older versions.
+
 ## Redmine Hotkeys Plugin
 
 Add some hotkeys for common actions: 
