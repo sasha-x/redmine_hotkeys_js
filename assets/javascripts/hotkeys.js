@@ -56,7 +56,7 @@
                     switch(String.fromCharCode(e.which).toLowerCase()){
                         //new issue
                         case 'n':
-                            $("a.new-issue:not(.selected)").hrefRedirect();
+                            $("a.new-issue:not(.selected), a.new-issue-sub").first().hrefRedirect();
                             break;
                         //new subtask
                         case 'm':
