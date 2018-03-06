@@ -1,6 +1,10 @@
 # redmine_hotkeys_js
 ## Redmine Hotkeys Plugin
 
+**UPD** : Since RM 3.4 with html changes some features don't work as-is.
+For RM >=3.4 make a new branch (current "master")
+
+
 Add some hotkeys for common actions: 
 
 * ctrl + enter : active form submit
