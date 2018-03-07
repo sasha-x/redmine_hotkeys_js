@@ -1,13 +1,14 @@
 /**
  *  Redmine Hotkeys Plugin
- *  Add some hotkeys for common actions: 
+ *  Add some hotkeys for common actions:
  *  * ctrl + enter form submit
  *  * project tabs switching
  *  * issue status changes
+ *  * issue list navigation
  */
 (function()
 {
-    
+
     function submitActiveForm()
     {
         var form0 = $(':focus').closest('form');
@@ -18,11 +19,11 @@
     function ifKeysPressed(event, keys)
     {
         var inputElements = ['input', 'select', 'textarea', 'button'];
-	var activeElement = document.activeElement.localName;
+        var activeElement = document.activeElement.localName;
 
-	if ($.inArray(activeElement, inputElements) == -1) {
-		return true;
-	}
+        if ($.inArray(activeElement, inputElements) == -1) {
+                return true;
+        }
         for(var i = 0; i < keys.length; i++){
             if(event[keys[i]] != true)
                 return false;
@@ -35,7 +36,7 @@
         return str;
     }
 
-    
+
     //redirect page to href in current element
     $.fn.hrefRedirect = function()
     {
@@ -55,7 +56,7 @@
                 if(e.ctrlKey && e.keyCode == 13){
                     submitActiveForm();
                 }
-              
+
                 //project tabs switching section
                 else if (ifKeysPressed(e, commonKeys)){
                     var fired = 1;
@@ -65,25 +66,25 @@
                             $("a.new-issue:not(.selected), a.new-issue-sub").first().hrefRedirect();
                             break;
                         //new subtask
-                        case 'm':
+                        case 's':
                             $('div.issue div#issue_tree>.contextual>a').hrefRedirect();
                             break;
-                        //edit issue	
+                        //edit issue
                         case 'e':
                             if($("div#update")){
                                 $("div#update").show();
                                 $("textarea#issue_notes").focus();
                             }
                             break;
-                        //issues list	
+                        //issues list
                         case 'i':
                             $("li>a.issues").hrefRedirect();
                             break;
-                        //wiki	
+                        //wiki
                         case 'w':
                             $("li>a.wiki").hrefRedirect();
                             break;
-                        //gantt	
+                        //gantt
                         case 'g':
                             $("li>a.gantt").hrefRedirect();
                             break;
@@ -91,25 +92,27 @@
                         case 'l':
                             $('.drdn-trigger').click();
                             break;
+                        case 'm':
+                            $("li>a.my-page").hrefRedirect();
+                            break;
                         //for new hotkeys
                         default:
-                            console.log(e);
+                            //console.log(e);
                             fired = 0;
                             break;
                     }
                     if(fired)
                         e.preventDefault();
                 }
-                
+
                 //issue status change section
-                
-                //ctrl + shift + p
+
                 else if (ifKeysPressed(e, issueKeys)){
                     var key = String.fromCharCode(e.which).toLowerCase();
                     var status_id = issueStatusMap[key];
                     if(status_id){
                         $("select#issue_status_id").val(status_id);
-                        
+
                         switch(key){
                             case 'r':
                                 //"Resolved": pass issue to its author
@@ -132,15 +135,15 @@
                                 }
                                 break;
                         }
-                        
+
                         submitActiveForm();
                         e.preventDefault();
                     }
                 }
-                
+
             });
         },
-        
+
         bindIssuesTableKeys()
         {
             var issues_table = 'table.list.issues';
@@ -195,22 +198,22 @@
     }
     $(document).ready(function(){
         //hotkeys config
-        
+
         //default base key combinations for a bulk of hotkeys
         //may be ctrlKey, altKey, shiftKey
-        var commonKeys = ['ctrlKey', 'altKey'];			//for tabs switching
-        var issueKeys = ['ctrlKey', 'altKey'];		//for issue status changes		//shiftKey
-        
-        //list of: 'status code' => 'status_id' 	//status name
+        var commonKeys = ['ctrlKey', 'altKey'];                 //for tabs switching
+        var issueKeys = ['ctrlKey', 'altKey'];          //for issue status changes              //shiftKey
+
+        //list of: 'status code' => 'status_id'         //status name
         //in your redmine
         var issueStatusMap = {
-                //'n': 1,		//New
-                'p': 2,			//In Progress
-                'r': 3,			//Resolved
-                'f': 4,			//Feedback
-                'c': 5			//Closed
+                //'n': 1,               //New
+                'p': 2,                 //In Progress
+                'r': 3,                 //Resolved
+                'f': 4,                 //Feedback
+                'c': 5                  //Closed
             };
-        
+
         HK.bindCommonKeys(commonKeys, issueKeys, issueStatusMap);
         HK.bindIssuesTableKeys();
     });
