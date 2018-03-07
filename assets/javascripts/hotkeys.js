@@ -18,11 +18,11 @@
     function ifKeysPressed(event, keys)
     {
         var inputElements = ['input', 'select', 'textarea', 'button'];
-		var activeElement = document.activeElement.localName;
+	var activeElement = document.activeElement.localName;
 
-		if ($.inArray(activeElement, inputElements) == -1) {
-			return true;
-		}
+	if ($.inArray(activeElement, inputElements) == -1) {
+		return true;
+	}
         for(var i = 0; i < keys.length; i++){
             if(event[keys[i]] != true)
                 return false;
@@ -199,7 +199,7 @@
         //default base key combinations for a bulk of hotkeys
         //may be ctrlKey, altKey, shiftKey
         var commonKeys = ['ctrlKey', 'altKey'];			//for tabs switching
-        var issueKeys = ['ctrlKey', 'shiftKey'];		//for issue status changes		
+        var issueKeys = ['ctrlKey', 'altKey'];		//for issue status changes		//shiftKey
         
         //list of: 'status code' => 'status_id' 	//status name
         //in your redmine
