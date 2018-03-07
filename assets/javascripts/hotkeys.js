@@ -88,7 +88,7 @@
                             $("li>a.gantt").hrefRedirect();
                             break;
                         //project switch
-                        case 'p':
+                        case 'l':
                             $('.drdn-trigger').click();
                             break;
                         //for new hotkeys
