@@ -1,6 +1,9 @@
 Горячие клавищи redmine
 =======================
 
+Обновлены под Redmine 3.4.  
+Некоторые - переназначены ("ctrl + shift + p" в новой версии Firefox занят).
+
 Общие
 -----
 
@@ -43,17 +46,22 @@
 
 # redmine_hotkeys_js (In English)
 
-*UPD* : this version is for RM v. >=3.4.
+*UPD* : this version is for RM v. >=3.4.  
 Partially incompartible with older versions.
 
 ## Redmine Hotkeys Plugin
 
 Add some hotkeys for common actions: 
 
-* ctrl + enter : active form submit
-* project tabs switching
-* issue status changes
-* navigation on issues list (yandex mail - like)
+* ctrl + enter : active form submit (issue, wiki, etc.)
+* project tabs switching (ctrl + alt + "first letter of tab name")
+* issue status changes (ctrl + alt + "first letter of standard status name")
+* navigation on issues list (arrow up/down, space, enter) 
+
+Tips:
+
+* hotkeys works regardless active keyboard layout/lang
+* short form of hotkeys available (l, i, e, n, ...). No "ctrl + alt" need if cursor is free (focus is not inside some input element)
 
 ### Navigation on issues list
 
@@ -61,11 +69,11 @@ Add some hotkeys for common actions:
 * "Space" (or Shift+Up/Down) to select (check/uncheck) issue
 * "Enter" to open issue
 
-Make as in mail.yandex.ru. Tested on RM 2.6; FF, Opera, IE8.
+~~Make as in mail.yandex.ru.~~ 
 
 ### Project list
 
-* ctrl + alt + p: project list select open
+* ctrl + alt + l: project list select open
 
 ### Project tabs switching
 
@@ -78,20 +86,22 @@ Make as in mail.yandex.ru. Tested on RM 2.6; FF, Opera, IE8.
 
 ### Issue status changes
 
-Based on default status list (script use ids, not names):
+Based on default status list (script use <id>s, not names):
 
 * New : 1
-* In Progress : 2 (ctrl + shift + p)
-* Resolved : 3 (ctrl + shift + r)
-* Feedback : 4 (ctrl + shift + f)
-* Closed : 5 (ctrl + shift + c)
+* In Progress : 2 (ctrl + alt + p)
+* Resolved : 3 (ctrl + alt + r)
+* Feedback : 4 (ctrl + alt + f)
+* Closed : 5 (ctrl + alt + c)
 
 #### Where are some smart actions added for "Resolved" and "Feedback" shortcuts:
 
 * "Resolved" status set issue assignee to its author
 * "Feedback" return issue to previous assignee
 
-To disable it simply comment out lines 84:105 of js file.
+Tips:
+* It works ok if you have a proper access rights
+* To disable it simply comment out lines ... of js file.
 
 ## Customize hotkeys
 
