@@ -90,7 +90,7 @@
                             break;
                         //project switch
                         case 'l':
-                            $('.drdn-trigger').click();
+                             $('#project-jump .drdn-trigger').click();
                             break;
                         case 'm':
                             $("li>a.my-page").hrefRedirect();
